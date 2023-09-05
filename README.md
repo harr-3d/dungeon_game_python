@@ -11,3 +11,13 @@ To run the game, download the files to a single folder, and run
 "dungeon_destructor.py" in the terminal to begin the game.
 
 ## To Do
+
+- Add an experience system that determines level, combat, and health
+
+- Add ability scores that affect damage, defense, and health
+
+- Add shop, potions, swords, and shields
+
+- Add the healer
+
+- Add the ability to flee in combat, but the monster gets one free attack

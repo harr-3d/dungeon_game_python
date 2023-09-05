@@ -66,3 +66,24 @@ class CombatSystem:
                                   self.monster.get_health()
                                   )
         ui.print_combat_round(self.turn_number)
+
+    def enter_combat(self):
+        """pick a monster at random and load the combat system"""
+        players_turn = True
+        combat_active = True
+
+        ui.print_header()
+        print(f"You have encountered a {self.monster.get_name()}!"
+              " Get ready to fight...")
+
+        while (combat_active == True): 
+            if combat_active != self.health_check():
+                break
+            elif players_turn:
+                self.player_turn()
+                players_turn = False
+            else:
+                self.enemy_turn()
+                players_turn = True
+            
+        print("\n")
