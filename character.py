@@ -5,15 +5,28 @@ class Character:
         self.name = character_name
         self.character_class = character_class
         self.experience = 0
-        self.level = 1 
-        self.max_health = 10 * self.level
-        self.current_health = 10
+        self.level = 2
+        self.max_health = 10 + (2 * self.level)
+        self.current_health = self.max_health
         self.attack_strength = 2
         self.hit_chance = 2
+        self.gold = 0
 
     def get_description(self):
         """Describe the character's basic info"""
         print(f"{self.name} is a level {self.level} {self.character_class}")
+    
+    def get_gold(self):
+        return self.gold
+    
+    def add_gold(self, amount):
+        self.gold += amount
+
+    def get_experience(self):
+        return self.experience
+    
+    def add_experience(self, amount):
+        self.experience += amount
 
     def get_health(self):
         """Returns how much health a player has left"""
