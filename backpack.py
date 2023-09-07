@@ -1,9 +1,9 @@
 class Backpack:
     """A model of a backpack to hold player inventory"""
     def __init__(self):
-        self.sword = "rusty sword"
-        self.shield = "wooden shield"
-        self.potions = 5
+        self.sword = ""
+        self.shield = ""
+        self.potions = 1
 
     def list_contents(self):
         """Print the contents of the backpack"""
