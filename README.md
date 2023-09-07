@@ -44,4 +44,4 @@ To run the game, download the files to a single folder, and run
 
 - 9.6.2023 Added level, health, gold, and xp to main menu
 
-- 9.6.2023 Add backpack
+- 9.6.2023 Added backpack
