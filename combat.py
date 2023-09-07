@@ -37,11 +37,10 @@ class CombatSystem:
 
     def player_turn(self):
         """The player attacks, and monster defends"""
-        attack = input("\n<press any key to fight a round>")
-
-        if self.monster.get_health() <= 0:
-            return False
-        elif dice.roll_d(6) <= self.player.get_hit_chance():
+        ui.clear_screen()
+        ui.print_header()
+        
+        if dice.roll_d(6) <= self.player.get_hit_chance():
             print(f"\nYou hit the {self.monster.get_name()} for "
                   f"{self.player.get_attack_strength()} damage!")
             self.monster.take_damage(self.player.get_attack_strength())
@@ -50,22 +49,29 @@ class CombatSystem:
 
     def enemy_turn(self):
         """The monster attacks, and the player defends"""
-        self.increase_turn_number()
-
-        if self.player.get_health() <= 0:
-            return False
-        elif dice.roll_d(6) <= self.player.get_hit_chance():
+        if dice.roll_d(6) <= self.player.get_hit_chance():
             print(f"\nThe {self.monster.get_name()} hit you for "
                   f"{self.monster.get_attack_strength()} damage!")
             self.player.take_damage(self.monster.get_attack_strength())
         else:
             print(f"\nThe {self.monster.get_name()} missed!")
 
+    def print_combat_UI(self):
         ui.print_combatant_health(self.player.get_health(), 
                                   self.monster.get_name(), 
                                   self.monster.get_health()
                                   )
         ui.print_combat_round(self.turn_number)
+
+    def fight_or_flight_check(self):
+        """Checks if the player wants to continue fighting or run away"""
+        attack = input("\nPress (f) to fight or (r) to try to run away: ")
+
+        if attack == "r":
+            print("\nYou attempt to run away!")
+            self.enemy_turn()
+            self.health_check()
+            return False
 
     def enter_combat(self):
         """pick a monster at random and load the combat system"""
@@ -73,17 +79,22 @@ class CombatSystem:
         combat_active = True
 
         ui.print_header()
-        print(f"You have encountered a {self.monster.get_name()}!"
+        print(f"\nYou have encountered a {self.monster.get_name()}!"
               " Get ready to fight...")
 
         while (combat_active == True): 
             if combat_active != self.health_check():
                 break
             elif players_turn:
+                if self.fight_or_flight_check() == False:
+                    combat_active = False
+                    break
                 self.player_turn()
                 players_turn = False
             else:
                 self.enemy_turn()
+                self.increase_turn_number()
+                self.print_combat_UI()
                 players_turn = True
             
         print("\n")
