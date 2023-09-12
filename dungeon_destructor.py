@@ -4,11 +4,7 @@ import combat as cs
 import user_interface
 import dice
 
-def load_healer(healing):
-    """Loads the healer's shop"""
-    if healing == 'y' and player.get_gold() >= 5:
-        player.heal_character()
-        player.subtract_gold(5)
+
 
 def load_menu(player_selection):
     """Loads the selected menu"""
@@ -19,23 +15,17 @@ def load_menu(player_selection):
     elif player_selection == '2':
         ui.print_shop_menu()
     elif player_selection == '3':
-        healing = ui.print_healer_menu()
-        load_healer(healing)
+        ui.print_healer_menu(player)
     elif player_selection == '4':
         # big boss fight
         pass
     else:
-        ui.print_main_menu(player.get_level(),
-                        player.get_health(),
-                        player.get_max_health(), 
-                        player.get_gold(), 
-                        player.get_experience(),
-                        player.get_xp_for_next_level())
+        ui.print_main_menu(player)
         player_selection = ui.main_menu_selection()
         load_menu(player_selection)
 
 # load the player, monsters, and UI
-player = char.Character('Grunnar', 'Druid')
+player = char.Character('Hero', 'Warrior')
 monsters = [m.Orc(), m.Goblin(), m.Bat(), m.Ghost(), m.Werewolf()]
 ui = user_interface.UserInterface()
 
@@ -45,11 +35,6 @@ pause_for_input = input()
 
 # print the main menu
 while(True):
-    ui.print_main_menu(player.get_level(),
-                       player.get_health(),
-                       player.get_max_health(), 
-                        player.get_gold(), 
-                        player.get_experience(),
-                        player.get_xp_for_next_level())
+    ui.print_main_menu(player)
     player_selection = ui.main_menu_selection()
     load_menu(player_selection)

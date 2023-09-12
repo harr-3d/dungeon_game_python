@@ -1,4 +1,4 @@
-import experience
+import experience, backpack
 
 xp_calculator = experience.ExperienceLevel()
 
@@ -15,6 +15,7 @@ class Character:
         self.attack_strength = 2
         self.hit_chance = 2
         self.gold = 0
+        self.backpack = backpack.Backpack()
 
     def get_description(self):
         """Describe the character's basic info"""

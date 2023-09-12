@@ -12,6 +12,7 @@ class Monster:
         self.gold_reward = 1
 
     def get_name(self):
+        """Returns the monster's name"""
         return self.name
 
     def get_health(self):
