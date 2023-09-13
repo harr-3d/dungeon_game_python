@@ -20,10 +20,6 @@ To run the game, download the files to a single folder, and run
 
 - Add ability scores that affect damage, defense, and health
 
-- Add shop
-
-- Add swords and shields
-
 - Have monster strength and rewards based on player level
 
 - Ability to fight the big boss if player is > level 10
@@ -35,6 +31,16 @@ To run the game, download the files to a single folder, and run
 - Add clear functionality for Windows
 
 ## Updates
+
+- 9.12.2023 Added sword and shields to combat.py and user_interface.py
+
+- 9.12.2023 Added sword_level and shield_level to backpack.py
+
+- 9.12.2023 Removed old named sword and shield system
+
+- 9.12.2023 Added the shop
+
+- 9.12.2023 Fixed an error with the combat turns always showing 0
 
 - 9.12.2023 Added a backpack to character.py
 
