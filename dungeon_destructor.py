@@ -13,7 +13,7 @@ def load_menu(player_selection):
         combat_system = cs.CombatSystem(player, monster)
         combat_system.enter_combat()
     elif player_selection == '2':
-        ui.print_shop_menu()
+        ui.print_shop_menu(player)
     elif player_selection == '3':
         ui.print_healer_menu(player)
     elif player_selection == '4':

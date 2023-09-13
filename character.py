@@ -14,7 +14,7 @@ class Character:
         self.current_health = self.max_health
         self.attack_strength = 2
         self.hit_chance = 2
-        self.gold = 0
+        self.gold = 10
         self.backpack = backpack.Backpack()
 
     def get_description(self):
@@ -58,7 +58,7 @@ class Character:
     
     def get_max_health(self):
         """Returns the player's max health"""
-        return self.max_health
+        return self.max_health + self.backpack.get_shield_level()
         
     def take_damage(self, damage):
         """Decreases the player's health"""
@@ -70,7 +70,7 @@ class Character:
     
     def get_attack_strength(self):
         """Returns the player's attack strength"""
-        return self.attack_strength
+        return self.attack_strength  + self.backpack.get_sword_level()
 
     def get_total_damage(self):
         """Returns total damage the player has taken"""

@@ -100,6 +100,7 @@ class CombatSystem:
                 players_turn = False
             else:
                 self.enemy_turn()
+                self.turn_number += 1
                 ui.print_combat_status(self.player.get_health(), 
                                        self.monster_name, 
                                        self.monster_health, 
