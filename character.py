@@ -1,4 +1,4 @@
-import experience, backpack
+import experience, backpack, ability_roll, math
 
 xp_calculator = experience.ExperienceLevel()
 
@@ -8,12 +8,19 @@ class Character:
     def __init__(self, character_name, character_class):
         self.name = character_name
         self.character_class = character_class
+        
         self.experience = 1
         self.level = xp_calculator.level_check(self.experience)
-        self.max_health = 6 + 6 * self.level
+        
+        # this could just be a single d6 roll, but this does it the D&D way
+        self.health_bonus = ability_roll.roll_four_d6() / 3
+        self.max_health = 6 + math.floor(self.health_bonus) * 2 * self.level
         self.current_health = self.max_health
-        self.attack_strength = 2
+        
+        self.attack_bonus = ability_roll.roll_four_d6() / 3
+        self.attack_strength = 2 + math.floor(self.attack_bonus)
         self.hit_chance = 2
+        
         self.gold = 10
         self.backpack = backpack.Backpack()
 
@@ -33,9 +40,16 @@ class Character:
         """Subtract from the player's gold total"""
         self.gold -= amount
 
+    def penalize_gold(self, amount):
+        """Decreases gold by 10%"""
+        self.gold = self.gold - amount
     def get_experience(self):
         """Returns the player's current xp points"""
         return self.experience
+    
+    def penalize_xp(self, amount):
+        """Decreases XP by 10%"""
+        self.experience = self.experience - amount
     
     def get_xp_for_next_level(self):
         """Returns the player's next level goal"""

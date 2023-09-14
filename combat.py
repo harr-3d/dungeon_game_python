@@ -29,7 +29,7 @@ class CombatSystem:
     def health_check(self):
         """Checks the health of the player and monster to determine game over"""
         if self.player.get_health() <= 0:
-            ui.print_game_over()
+            ui.print_game_over(self.player)
             return False
         
         if self.monster_health <= 0:

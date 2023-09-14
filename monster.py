@@ -91,9 +91,9 @@ class Werewolf(Monster):
 class BigBoss(Monster):
     """A giant with unpleasent habits of personal hygiene..."""
     def __init__(self):
-        self.name = "Big Boxx"
-        self.health = 42
-        self.hit_chance = 4
-        self.attack_strength = 3
+        self.name = "Big Boss"
+        self.health = 100
+        self.hit_chance = 2
+        self.attack_strength = 99
         self.xp_reward = 2000
         self.gold_reward = dice.roll_d(1000)

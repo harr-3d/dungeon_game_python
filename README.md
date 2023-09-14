@@ -3,34 +3,27 @@
 This text based dungeon game is meant to be played in the terminal. This is a 
 personal project.
 
-It is currently in development. Much more will be added.
-
 ## Installation
 
 To run the game, download the files to a single folder, and run 
 "dungeon_destructor.py" in the terminal to begin the game.
 
-## Known Bugs
-
-- Combat outcomes do not display properly. There is no combat summary
-
-- After player death, the game continues instead of resetting
-
-## To Do
-
-- Add ability scores that affect damage, defense, and health
-
-- Have monster strength and rewards based on player level
-
-- Ability to fight the big boss if player is > level 10
-
-- Add save game data
-
-- Fix death screen, and a revive option with xp/gold penalty
-
-- Add clear functionality for Windows
-
 ## Updates
+
+- 9.14.2023 Final update. Pending additional testing, the game is complete.
+  It is strongly recommended that the player reach level 10, and upgrade both
+  sword and shield multiple times before attempting to fight the big boss.
+
+- 9.14.2023 Added strength and consitution abilities to modify damage
+  and health for the player
+
+- 9.14.2023 Fixed death screen. Added revive option with xp/gold penalty
+
+- 9.13.2023 Added a combat summary after victory
+
+- 9.13.2023 Added clear() function to windows as well as mac/linux
+
+- 9.13.2023 Added ability to fight big boss at any level, level 10 advised
 
 - 9.12.2023 Added sword and shields to combat.py and user_interface.py
 
